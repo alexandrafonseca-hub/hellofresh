@@ -46,19 +46,20 @@ Based on the case description above and information below:
 3. Explain how you would measure the improvements
 
 ## Important Information
-• All the business logic should remain the same - filters and groups should be respected (the output data should be the same)
-• Number of records in each table:
-  o Customer_conversations = 150.000.000 (150 million rows) o Customers = 1.000.000 (1 million rows)
-  o Dates = 5.000 (5 thousand rows
-  o Entities = 500 (five hundred rows)
-• All tables might have additional columns, which are not necessary in this example
-• All tables are clean and have no duplicate records
-• The combination of customer and country is unique
-• Dates are stored in an INT field, with format as YYYYMMDD
-• Dates.hellofresh_week follows the format YYYY-W00 (e.g: 2020-W01 = first week of 2020)
-• Dates.iso_week follows the format W00 (e.g: W01, first week of the calendar year)
-• Dates.date_string follows the format YYYY-MM-DD
-• Customer_conversations data is stored in a partitioned table, with country as a partition column.
+1. All the business logic should remain the same - filters and groups should be respected (the output data should be the same)
+2. Number of records in each table:
+   Customer_conversations = 150.000.000 (150 million rows)
+   Customers = 1.000.000 (1 million rows)
+   Dates = 5.000 (5 thousand rows
+   Entities = 500 (five hundred rows)
+3. All tables might have additional columns, which are not necessary in this example
+4. All tables are clean and have no duplicate records
+5. The combination of customer and country is unique
+6. Dates are stored in an INT field, with format as YYYYMMDD
+7. Dates.hellofresh_week follows the format YYYY-W00 (e.g: 2020-W01 = first week of 2020)
+8. Dates.iso_week follows the format W00 (e.g: W01, first week of the calendar year)
+9. Dates.date_string follows the format YYYY-MM-DD
+10. Customer_conversations data is stored in a partitioned table, with country as a partition column.
 
 Query
 
