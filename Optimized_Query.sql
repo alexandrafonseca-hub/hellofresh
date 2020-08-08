@@ -1,26 +1,4 @@
-with customer_conversations_v2 as 
-	( 
-		SELECT conversation_id
-			, agent_email
-			, agent_department
-			, wrap_up_name
-			, wrap_up_note
-			, media_type
-			, queue_name
-			, originating_direction
-			, fk_conversation_start_date
-			, fk_customer_id 
-			, country
-			, CASE 
-				WHEN country IN ( 'GB', 'UK' ) THEN 'UK' ELSE country END AS 'new_country'
 
-		FROM customer_conversations 
-
-		WHERE country NOT IN ( 'EP', 'ER', 'GC' )
-			and originating_direction = 'inbound'
-			and participant_purpose = 'agent'
-
-	)
 
 SELECT cd.customer_id 
 	, ed.country
