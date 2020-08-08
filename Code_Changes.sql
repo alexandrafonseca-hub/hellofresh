@@ -55,21 +55,8 @@ LEFT JOIN dates AS dd ON gc.fk_conversation_start_date = dd.date_id
 
 LEFT JOIN customers AS cd ON gc.fk_customer_id = c.customer_id
 
-LEFT JOIN
-	(
-		SELECT DISTINCT country,
-				CASE WHEN country IN ( 'GB', 'UK' ) THEN 'UK' WHEN country IN ( 'EP', 'ER', 'GC' ) THEN 'US' ELSE country
-				END AS 'new_country'
+LEFT JOIN entities AS ed ON gc.new_country = ed.country
 
-		FROM customer_conversations AS gc
-	)AS nc
-		ON gc.country = nc.country
-
-LEFT JOIN entities AS ed ON nc.new_country = ed.country
-
-WHERE gc.participant_purpose = 'agent'
-	AND gc.originating_direction = 'inbound'
-	AND e.country_group <> 'US'
 				
 GROUP BY 1
 	, 2
