@@ -1,4 +1,4 @@
-SELECT DISTINCT c.customer_id
+SELECT DISTINCT cd.customer_id 
 	, ed.country
 	, gc.queue_name
 	, dd.hellofresh_week
