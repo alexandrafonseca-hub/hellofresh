@@ -10,6 +10,7 @@ with customer_conversations_v2 as
 			, originating_direction
 			, fk_conversation_start_date
 			, fk_customer_id 
+			, country
 			, CASE 
 				WHEN country IN ( 'GB', 'UK' ) THEN 'UK' ELSE country END AS 'new_country'
 
@@ -54,6 +55,7 @@ FROM customer_conversations_v2 AS gc
 LEFT JOIN dates AS dd ON gc.fk_conversation_start_date = dd.date_id
 
 LEFT JOIN customers AS cd ON gc.fk_customer_id = c.customer_id
+	and gc.country = c.country
 
 LEFT JOIN entities AS ed ON gc.new_country = ed.country
 
