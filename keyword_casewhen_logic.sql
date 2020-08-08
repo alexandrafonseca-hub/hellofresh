@@ -6,6 +6,7 @@
 		--WHEN Lower(gc.wrap_up_note) LIKE '%coronavirus%' THEN 'Coronavirus'
 		--WHEN Lower(gc.wrap_up_note) LIKE '% covid%' THEN 'Coronavirus' 
 		
+		-- There are more countries outside of the US AND ('AU','NZ','BENELUXFR','UK') otherwise, we would exclude the country from the key words
 		-- 'Refund not received'
 		WHEN ed.country_group IN ('AU','NZ','BENELUXFR','UK') AND gc.wrap_up_name = 'Payments - Refund' AND Lower(gc.wrap_up_note) LIKE '%not received%' THEN 'Refund not received'
 
