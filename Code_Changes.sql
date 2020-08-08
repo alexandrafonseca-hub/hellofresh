@@ -111,18 +111,18 @@ WHERE gc.participant_purpose = 'agent'
 	AND gc.originating_direction = 'inbound'
 	AND e.country_group <> 'US'
 				
-GROUP BY c.customer_id,
-	,ed.country
-	, gc.queue_name
-	, dd.hellofresh_week
-	, dd.iso_week
-	, dd.date_string
-	, dd.quarter
-	, dd.year
-	, gc.agent_email
-	, gc.agent_department
-	, gc.wrap_up_name
-	, gc.wrap_up_note
-	, gc.conversation_id
-	, gc.media_type
+GROUP BY 1
+	, 2
+	, 3
+	, 4
+	, 5
+	, 6
+	, 7
+	, 8
+	, 9
+	, 10
+	, 11
+	, 12
+	, 13
+	, 14
 
