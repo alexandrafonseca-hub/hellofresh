@@ -70,7 +70,7 @@ SELECT DISTINCT c.customer_id
 
 		WHEN ed.country_group = 'UK' AND gc.wrap_up_name = 'Payments - Reactivation' AND Lower(gc.wrap_up_note) LIKE '%paid%' THEN 'Paid'
 
-		WHEN ed.country_group = 'UK' AND gc.wrap_up_name = 'Payments - Outstanding' AND Lower(gc.wrap_up_note) LIKE '%payment plan%' THEN 'Payment plan
+		WHEN ed.country_group = 'UK' AND gc.wrap_up_name = 'Payments - Outstanding' AND Lower(gc.wrap_up_note) LIKE '%payment plan%' THEN 'Payment plan'
 		WHEN ed.country_group = 'UK' AND gc.wrap_up_name = 'Payments - Outstanding' AND Lower(gc.wrap_up_note) LIKE '%manual%' THEN 'Manual payment' 
 		WHEN ed.country_group = 'UK' AND gc.wrap_up_name = 'Payments - Other' AND Lower(gc.wrap_up_note) LIKE '%overview%' THEN 'Overview'
 		WHEN ed.country_group = 'UK' AND Lower(gc.wrap_up_note) LIKE '%email%' THEN 'Email'
