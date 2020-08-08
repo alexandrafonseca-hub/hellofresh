@@ -107,9 +107,9 @@ LEFT JOIN
 
 LEFT JOIN entities AS ed ON nc.new_country = ed.country
 
-WHERE participant_purpose = 'agent'
+WHERE gc.participant_purpose = 'agent'
 	AND gc.originating_direction = 'inbound'
-	AND country_group <> 'US'
+	AND e.country_group <> 'US'
 				
 GROUP BY c.customer_id,
 	,ed.country
