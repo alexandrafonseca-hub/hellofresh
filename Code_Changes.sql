@@ -1,3 +1,26 @@
+with customer_conversations_v2 as 
+	( 
+		SELECT DISTINCT conversation_id
+			, agent_email
+			, agent_department
+			, wrap_up_name
+			, wrap_up_note
+			, media_type
+			, queue_name
+			, originating_direction
+			, fk_conversation_start_date
+			, fk_customer_id 
+			, CASE 
+				WHEN country IN ( 'GB', 'UK' ) THEN 'UK' ELSE country END AS 'new_country'
+
+		FROM customer_conversations 
+
+		WHERE country NOT IN ( 'EP', 'ER', 'GC' )
+			and originating_direction = 'inbound'
+			and participant_purpose = 'agent'
+
+	)
+
 SELECT DISTINCT cd.customer_id 
 	, ed.country
 	, gc.queue_name
@@ -26,7 +49,7 @@ SELECT DISTINCT cd.customer_id
 	ELSE 'Other'
 	END AS 'Keyword'
 
-FROM customer_conversations AS gc
+FROM customer_conversations_v2 AS gc
 
 LEFT JOIN dates AS dd ON gc.fk_conversation_start_date = dd.date_id
 
