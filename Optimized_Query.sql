@@ -1,6 +1,6 @@
 with customer_conversations_v2 as 
 	( 
-		SELECT DISTINCT conversation_id
+		SELECT conversation_id
 			, agent_email
 			, agent_department
 			, wrap_up_name
@@ -22,7 +22,7 @@ with customer_conversations_v2 as
 
 	)
 
-SELECT DISTINCT cd.customer_id 
+SELECT cd.customer_id 
 	, ed.country
 	, gc.queue_name
 	, dd.hellofresh_week
